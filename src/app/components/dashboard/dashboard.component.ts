@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
-import { ProductService } from '../../services/product.service';
 import { Product } from '../../interfaces/products';
+import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +15,7 @@ export class DashboardComponent implements OnInit {
 
   productList:Product[]=[];
 
-  constructor(private productService: ProductService){
+  constructor(private productService: ProductService, private router: Router){
     
   }
   ngOnInit(): void {
@@ -30,9 +31,10 @@ export class DashboardComponent implements OnInit {
       },
       error: (err) => {
         console.log(err);
-        
+        this.router.navigate(['/login'])
       }
     })
   }
+
 
 }

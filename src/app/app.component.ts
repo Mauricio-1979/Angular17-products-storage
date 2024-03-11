@@ -3,15 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, RouterOutlet, LoginComponent, SignInComponent, RouterLink],
+  standalone: true,  
+  imports: [CommonModule, DashboardComponent, RouterOutlet, LoginComponent, SignInComponent, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
- 
+  template: `<div *ngIf="visible">Hi</div>`, 
 })
 export class AppComponent {
   title = 'frontend';
